@@ -253,13 +253,13 @@
             <Button
 
                 android:id="@+id/equals"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="100"
                 android:background="@drawable/rex"
-                android:textSize="40sp"
                 android:onClick="onClickListenerEqual"
-                android:text="="/>
+                android:text="="
+                android:textSize="40sp" />
 
         </LinearLayout>
 

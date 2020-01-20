@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    // You may get a wrong answer when you will calculating negative numbers
+
     TextView display;
     TextView check;
     TextView check2;
