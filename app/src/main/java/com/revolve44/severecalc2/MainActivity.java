@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,262 +18,276 @@ public class MainActivity extends AppCompatActivity {
     int Operation; // type of operation 1 is minus , 2 is multiply
     boolean firstNegativeNumb;
 
-    int arg1;
-    int arg2;
+    int arg1=0;
+    int arg2=0;
 
-    int result;
+    String result;
 
     String sum = "";
 
     String one = "1";
+    int One = 1;
     String two = "2";
+    int Two = 2;
     String three = "3";
+    int Three = 3;
     String four = "4";
+    int Four = 4;
     String five = "5";
-    String six = "6";
-    String seven = "7";
-    String eight = "8";
-    String nine = "9";
-    String ten = "0";
+    int Five = 5;
 
+    String six = "6";
+    int Six = 6;
+    String seven = "7";
+    int Seven = 7;
+    String eight = "8";
+    int Eight = 8;
+    String nine = "9";
+    int Nine = 9;
+    String ten = "0";
+    int Ten = 0;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         display = findViewById(R.id.display); // we can declare textview only , IMHO, in this onCreate method
         check = findViewById(R.id.check);
         check2 = findViewById(R.id.check2);
-
     }
 
+
     public void onClickListener1(View view) {
-        if (State == 2){ // if we input a second number
-            check.append(sum);
-            check2.append(""+arg2);
-            sum = sum+one;
 
+        if (State == 2){
+            arg2 = Integer.parseInt(Integer.toString(arg2) + (One));
+        }else{
+            //arg1 = arg1+One;
+            arg1 = Integer.parseInt(Integer.toString(arg1) + (One));
         }
-
-        display.append("1");// if we input first number
+        display.append("1");
+        //State =1;
 
     }
 
     public void onClickListener2(View view) {
+
         if (State == 2){
-            check.append("2");
-            sum = sum+two;
+            //arg2 = arg2+Two;
+            arg2 = Integer.parseInt(Integer.toString(arg2) + (Two));//Error have been coz i careless
+        }else {
+            //arg1 = arg1+Two;
+            arg1 = Integer.parseInt(Integer.toString(arg1) + (Two));
         }
+//        else{
+//            arg1 = Integer.parseInt(Integer.toString(arg1) + (Two));
+//            arg1 = -arg1;
+//        }
         display.append("2");
+        //State = 1;
     }
-
     public void onClickListener3(View view) {
-        if (State == 2){
-            check.append("3");
-            sum = sum+three;
-        }
 
+        if (State == 2){
+            arg2 = Integer.parseInt(Integer.toString(arg2) + (Three));
+        }else{
+            //arg1 = arg1+One;
+            arg1 = Integer.parseInt(Integer.toString(arg1) + (Three));
+        }
         display.append("3");
+        //State =1;
     }
-
     public void onClickListener4(View view) {
-        if (State == 2){
-            check.append("4");
-            sum = sum+four;
-        }
 
+        if (State == 2){
+            arg2 = Integer.parseInt(Integer.toString(arg2) + (Four));
+        }else{
+            //arg1 = arg1+One;
+            arg1 = Integer.parseInt(Integer.toString(arg1) + (Four));
+        }
         display.append("4");
+        //State =1;
     }
-
     public void onClickListener5(View view) {
-        if (State == 2){
-            check.append("5");
-            sum = sum+five;
-        }
 
+        if (State == 2){
+            arg2 = Integer.parseInt(Integer.toString(arg2) + (Five));
+        }else{
+            //arg1 = arg1+One;
+            arg1 = Integer.parseInt(Integer.toString(arg1) + (Five));
+        }
         display.append("5");
+        //State =1;
     }
-
     public void onClickListener6(View view) {
-        if (State == 2){
-            check.append("6");
-            sum = sum+six;
-        }
 
+        if (State == 2){
+            arg2 = Integer.parseInt(Integer.toString(arg2) + (Six));
+        }else{
+            arg1 = Integer.parseInt(Integer.toString(arg1) + (Six));
+        }
         display.append("6");
     }
-
     public void onClickListener7(View view) {
-        if (State == 2){
-            check.append("7");
-            sum = sum+seven;
-        }
 
+        if (State == 2){
+            arg2 = Integer.parseInt(Integer.toString(arg2) + (Seven));
+        }else{
+            arg1 = Integer.parseInt(Integer.toString(arg1) + (Seven));
+        }
         display.append("7");
     }
-
-
     public void onClickListener8(View view) {
+
         if (State == 2){
-            check.append("8");
-            sum = sum+eight;
+            arg2 = Integer.parseInt(Integer.toString(arg2) + (Eight));
+        }else{
+            arg1 = Integer.parseInt(Integer.toString(arg1) + (Eight));
         }
         display.append("8");
     }
-
     public void onClickListener9(View view) {
-        if (State == 2){
-            check.append("9");
-            sum = sum+nine;
-        }
 
+        if (State == 2){
+            arg2 = Integer.parseInt(Integer.toString(arg2) + (Nine));
+        }else{
+            arg1 = Integer.parseInt(Integer.toString(arg1) + (Nine));
+        }
         display.append("9");
     }
-
     public void onClickListener0(View view) {
-        if (State == 2){
-            check.append("0");
-            sum = sum+ten;
-        }
 
+        if (State == 2){
+            arg2 = Integer.parseInt(Integer.toString(arg2) + (Ten));
+        }else{
+            arg1 = Integer.parseInt(Integer.toString(arg1) + (Ten));
+        }
         display.append("0");
     }
+    /////////
+    public void onClickListenerMinus(View view) {
+        if (arg1 == 0){
 
-    ///*///*///*///
+            firstNegativeNumb = true;
+
+            display.append("-");
+            //State=0;
+        }else{
+            display.append("-");
+            State = 2;
+            Operation = 4;
+        }
+    }
+    public void onClickListenerPlus(View view) {
+
+        display.append("+");
+        State = 2;
+        Operation = 3;
+
+    }
+    public void onClickListenerMulty(View view) {
+
+        display.append("*");
+        State = 2;
+        Operation = 2;
+
+    }
+    public void onClickListenerDivision(View view) {
+
+        display.append("/");
+        State = 2;
+        Operation = 1;
+
+    }
 
     public void onClickListenerReset(View view) {
         arg1 = 0;
         arg2 = 0;
         sum="0";
         display.setText(null); // clean display
-        check.setText(null);
+        //check.setText(null);
         State = 1; // now we can input new number again
         //Operation = 3;
+        check.setText(""+arg1);
+        check2.setText(""+arg2);
+
+        firstNegativeNumb = false;
     }
-
-    public void onClickListenerDivision(View view) {
-
-        try {
-            String argument1 = display.getText().toString();
-            arg1 = Integer.parseInt(argument1);
-            display.append("/");
-            State = 2;
-            Operation = 1;
-        }catch (Exception e){
-
-        }
-    }
-
-    public void onClickListenerPlus(View view) {
-
-        try {
-            //String argument1 =
-            arg1 = Integer.parseInt(display.getText().toString());
-            display.append("+");
-            State = 2;
-            Operation = 3;
-        }catch (Exception e) {
-
-        }
-    }
-
-    public void onClickListenerMinus(View view) {
-
-        try {
-
-            //снова
-            if (sum==""||sum=="0"){
-                firstNegativeNumb = true;
-                display.append("-");
-                State = 2;
-                arg1 = Integer.parseInt(display.getText().toString());
-                //Operation = 4;
-            }else{
-
-            arg1 = Integer.parseInt(display.getText().toString());
-            display.append("-");
-            State = 2;
-            Operation = 4;}
-
-        }catch (Exception e){
-
-        }
-    }
-
-    public void onClickListenerMulty(View view) {
-        //String argument1 = display.getText().toString();
-
-        try {
-            arg1 = Integer.parseInt(display.getText().toString());
-            display.append("x");
-            State = 2;
-            Operation = 2;
-
-        }catch (Exception e){
-
-        }
-    }
-
-
-    //////*//////*//////*////////
 
     public void onClickListenerEqual(View view) {
-        try {
-//            String argument2 = check.getText().toString();
-//            arg2 = Integer.parseInt(argument2);
-               arg2 = Integer.parseInt(sum);
+        try{
+            display.setText(null);
+            check.setText(null);
 
-              display.setText(null);
-              check.setText(null);
-              //sum = "0";
+            result = String.valueOf(arg1);
 
-              MyResult();
+
+            //display.setText(result);
+            //display.setText(null);
+            Myresult();
         }catch (Exception e){
-            display.setText("Error #Equal");
-//            display.setText(null);
-//            check.setText(null);
+            display.setText("pizdez");
+
         }
-
-
-        //State = 2;//now you may input first number
     }
 
-    private void MyResult() {
-        sum = "";
-        if (firstNegativeNumb==true){
-            arg1=-arg1;
-            firstNegativeNumb=false;
-        }
+
+
+    private void Myresult(){
+        //display.setText(arg1);
+        check.setText(""+arg1);
+        check2.setText(""+arg2);
+
         if (Operation == 1){
             if (arg2==0){
                 display.setText("error n/0 bitch");
             }else{
-                result = arg1 / arg2;
-                display.setText(String.valueOf(result));
+                result = String.valueOf(arg1/arg2);
+
+                //display.setText(result);
+//                result = arg1 / arg2;
+//                display.setText(String.valueOf(result));
             }
         }
         if (Operation == 2){
-            result = arg1 * arg2;
-            display.setText(String.valueOf(result));
+            result = String.valueOf(arg1*arg2);
+
+            //display.setText(result);
         }
         if (Operation == 3){
-            result = arg1 + arg2;
-            //display.setText(String.valueOf(result));
 
-            display.setText(""+result);
-            //arg1 = Integer.parseInt(String.valueOf(result));
+            result = String.valueOf(arg1+arg2);
+
+            //display.setText(result);
+
 
         }
         if (Operation == 4){
-            result = arg1 - arg2;
+            if (firstNegativeNumb==true){
+                result = String.valueOf(-arg1-arg2);
+
+                //display.setText(result);
+            }else{
+
+                result = String.valueOf(arg1-arg2);
+
+
+            }
+            //result = arg1 - arg2;
             //display.setText(String.valueOf(result));
-            display.setText(String.valueOf(result));
+            //display.setText(String.valueOf(result));
             //display.setText(result); here been error coz is Int in String Textview
         }
-    }
-    public void onClickListenerCnange(View view) {
-    }
+        if (firstNegativeNumb==true){
 
 
+        }
+
+        display.setText(result);
+        arg1 = Integer.parseInt(result);
+
+        arg2 = 0;
+        State = 2;
+    }
 }

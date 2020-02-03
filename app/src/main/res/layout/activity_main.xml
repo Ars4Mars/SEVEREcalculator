@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.revolve44.severecalc2.MainActivity"
-    android:background="#263680"
+    android:background="#078D0E"
     >
 
     <LinearLayout
